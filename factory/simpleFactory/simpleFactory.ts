@@ -4,18 +4,13 @@
  * скорее это идиома программирования
  */
 
-export enum PizzaTypes {
-    Cheese = 'cheese',
-    Pepperoni = 'pepperoni',
-    Clam = 'clam',
-    Veggie = 'veggie',
-    Greek = 'greek'
-};
+import { PizzaTypes } from "../constants";
 
 // Абстрактный класс с полезными реализациями,
 // которые могут переопределяться в субклассах
 // Продукт производимый фабрикой
-export abstract class Pizza {
+
+abstract class Pizza {
     type: string
 
     prepare = () => console.log('prepare process');
@@ -100,3 +95,23 @@ class PizzaStore {
     }
 
 };
+
+// Пример использования простой фабрики
+
+// Создание экземпляра фабрики
+
+const pizzaFactory = new SimplePizzaFactory();
+
+// Создаем экземпляр пиццерии 
+
+const myPizzaStore = new PizzaStore(pizzaFactory);
+
+// Получаем заказ от клиента
+
+const orderType = "pepperoni";
+
+// Готовим заказ и возвращаем готовый продукт
+
+const orderResult = myPizzaStore.orderPizza(orderType);
+
+console.log("Your pizza is ready:", orderResult);

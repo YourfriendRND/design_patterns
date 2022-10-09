@@ -5,9 +5,21 @@
  * экземпляра субклассам.
  */
 
-import { Pizza, PizzaTypes } from '../simpleFactory/index';
+import { PizzaTypes } from "../constants";
 
-abstract class PizzaStoreRenovation {
+abstract class Pizza {
+    type: string
+
+    prepare = () => console.log('prepare process');
+    
+    bake = () => console.log('bake process');
+
+    cut = () => console.log('cut process');
+
+    box = () => console.log('box process');
+}
+
+abstract class PizzaStore {
     pizza: Pizza;
     
     // Вся ответственность за создание экземпляров Pizza
@@ -51,7 +63,7 @@ class NYStyleGreekPizza extends Pizza {
     type: 'greek'
 }
 
-class NYPizzaStore extends PizzaStoreRenovation {
+class NYPizzaStore extends PizzaStore {
     
     // Метод возвращает объект типа Pizza
     // а субкласс NYPizzaStore несет полную ответственность
@@ -68,3 +80,17 @@ class NYPizzaStore extends PizzaStoreRenovation {
     }
 }
 
+// Создание конкретной пицерии в Нью-Йорском стиле
+
+const nyPizzaStore = new NYPizzaStore();
+
+// В новую пиццерию поступает заказ 
+
+const orderType = "veggie";
+
+// Передача заказа на приготовление
+
+const orderResult = nyPizzaStore.orderPizza(orderType);
+
+// выдача заказа
+console.log("Your pizza is ready:", orderResult)
