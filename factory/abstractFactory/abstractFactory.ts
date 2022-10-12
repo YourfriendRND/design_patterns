@@ -14,23 +14,23 @@ abstract class Dough {
 
 abstract class Sauce {
     type: string
-}
+};
 
 abstract class Cheese {
     type: string;
-}
+};
 
 abstract class Veggie {
     type: string;
-}
+};
 
 abstract class Clams {
     type: string;
-}
+};
 
 abstract class Pepperoni {
     type: string;
-}
+};
 
 
 // Конкретная реализация ингридиентов
@@ -121,7 +121,7 @@ class BlackOlives extends Veggie {
         super();
         this.type = "BlackOlives";
     }
-}
+};
 
 class EggPlant extends Veggie {
     type: string;
@@ -129,7 +129,7 @@ class EggPlant extends Veggie {
         super();
         this.type = "EggPlant";
     }
-}
+};
 
 class FreshClams extends Clams {
     type: string;
@@ -137,7 +137,7 @@ class FreshClams extends Clams {
         super();
         this.type = "FreshClams";
     }
-}
+};
 
 class FrozenClams extends Clams {
     type: string;
@@ -145,7 +145,7 @@ class FrozenClams extends Clams {
         super();
         this.type = "FrozenClams";
     }
-}
+};
 
 class SlicedPepperoni extends Pepperoni {
     type: string;
@@ -153,7 +153,7 @@ class SlicedPepperoni extends Pepperoni {
         super();
         this.type = "SlicedPepperoni";
     }
-}
+};
 
 // Любая региональная фабрика ингридиентов
 // должна реализовать интерфейс фабрики ингридиентов
@@ -189,7 +189,7 @@ class NYPizzaIngredientFactory implements PizzaIngridientFactory {
     createClams = () => new FreshClams();
 
     createPepperoni = () => new SlicedPepperoni(); 
-}
+};
 
 class ChicagoPizzaIngredientFactory implements PizzaIngridientFactory {
     
@@ -204,7 +204,7 @@ class ChicagoPizzaIngredientFactory implements PizzaIngridientFactory {
     createClams = () => new FrozenClams();
     
     createPepperoni = () => new SlicedPepperoni(); 
-}
+};
 
 // абстрактная пицца
 
