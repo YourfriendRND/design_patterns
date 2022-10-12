@@ -122,6 +122,31 @@ class CurrentConditionsDisplay implements Observer, DisplayElement {
     };
 }; 
 
+// экран для прогноза погоды
+
+class ForecastDisplay implements Observer, DisplayElement {
+    private weatherData: WeatherData;
+    private currentPressure: number;
+    private lastPressure: number;
+
+    constructor(weatherData) {
+        this.weatherData = weatherData;
+        this.weatherData.registerObserver(this);
+        this.currentPressure = 760;
+        this.lastPressure = 0;
+    }
+
+    update(): void {
+        this.lastPressure = this.currentPressure;
+        this.currentPressure = this.weatherData.getPressure();
+        this.display();
+    }
+
+    display(): void {
+       // код вывода данных 
+    }
+}
+
 
 // Формируем все объекты в единый объект программы \
 
