@@ -17,3 +17,5 @@
 [Фабричный метод](./factory/factoryMethod/factoryMethod.ts);
 
 [Абстрактная фабрика](./factory/abstractFactory/abstractFactory.ts);
+
+[Одиночка](./singleton/singleton.ts);
